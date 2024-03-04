@@ -41,6 +41,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -57,6 +58,27 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>4.2.3</version>
+				<configuration>
+					<effort>Max</effort>
+					<threshold>Low</threshold>
+					<!-- Customize the effort and threshold as needed -->
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+							<!-- Use "spotbugs" goal for analysis without failing the build -->
+						</goals>
+						<phase>verify</phase>
+						<!-- Bind to a different phase if needed -->
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
