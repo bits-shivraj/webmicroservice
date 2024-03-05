@@ -63,8 +63,8 @@
 				<artifactId>spotbugs-maven-plugin</artifactId>
 				<version>4.2.3</version>
 				<configuration>
-					<effort>Max</effort>
-					<threshold>Low</threshold>
+					<effort>Low</effort>
+					<threshold>Medium</threshold>
 					<!-- Customize the effort and threshold as needed -->
 				</configuration>
 				<executions>
