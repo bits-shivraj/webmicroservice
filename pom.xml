@@ -64,7 +64,7 @@
 				<version>4.2.3</version>
 				<configuration>
 					<effort>Low</effort>
-					<threshold>Medium</threshold>
+					<threshold>High</threshold>
 					<!-- Customize the effort and threshold as needed -->
 				</configuration>
 				<executions>
