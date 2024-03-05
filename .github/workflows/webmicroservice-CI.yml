@@ -81,7 +81,7 @@ jobs:
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
       with:
-        projectKey: bits-shivraj_webmicroservice
+        projectKey: 'bits-shivraj_webmicroservice'
         token: ${{ secrets.SONAR_TOKEN }}
       
   dockertask:
