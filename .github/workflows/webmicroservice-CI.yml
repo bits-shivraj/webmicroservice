@@ -86,7 +86,8 @@ jobs:
       
   dockertask:
        runs-on: ubuntu-latest
-       needs: lint
+       needs: [lint, build,sonarcloud-analysis]
+       
        steps:
        - uses: actions/checkout@v2
        - name: Build dockerimage
