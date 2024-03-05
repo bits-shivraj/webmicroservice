@@ -80,10 +80,15 @@ jobs:
 
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
-        projectKey: 'bits-shivraj_webmicroservice'
-        token: ${{ secrets.SONAR_TOKEN }}
-      
+       args:
+         -Dsonar.organization=bits-shivraj
+         -Dsonar.projectkey=bits-shivraj_webmicroservice
+        
+         
   dockertask:
        runs-on: ubuntu-latest
        needs: [lint, build,sonarcloud-analysis]
