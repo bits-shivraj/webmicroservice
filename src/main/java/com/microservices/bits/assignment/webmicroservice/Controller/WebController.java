@@ -1,6 +1,6 @@
 package com.microservices.bits.assignment.webmicroservice.Controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+//import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,15 +11,16 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class webController {
+public class WebController {
 
     @PostMapping("/test")
-    public String test(){
+    public static String test() {
+
         return "webservice";
     }
     @PostMapping("/register")
