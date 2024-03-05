@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class WebController {
+public class webController {
 
     @PostMapping("/test")
     public static String test() {
