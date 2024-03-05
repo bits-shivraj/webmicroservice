@@ -24,11 +24,11 @@ public class WebController {
         return "webservice";
     }
     @PostMapping("/register")
-     public String doRegister(@RequestParam("mobileno") String mobileno,
-                              @RequestParam("empname") String empname,
-                              @RequestParam("empid") String empid,
-                              @RequestParam("emptype") String emptype,
-                              @RequestParam("secretkey") String secretkey) throws IOException, InterruptedException {
+    final public String doRegister(@RequestParam("mobileno") final String mobileno,
+                              @RequestParam("empname") final String empname,
+                              @RequestParam("empid") final String empid,
+                              @RequestParam("emptype")final String emptype,
+                              @RequestParam("secretkey") final String secretkey) throws IOException, InterruptedException {
        // Call Register service
         Map<Object, Object> body = new HashMap();
         body.put("mobileno",mobileno);
@@ -47,8 +47,8 @@ public class WebController {
     }
 
     @PostMapping("/auth")
-    public String doAuth(@RequestParam("mobileno") String mobileno,
-                         @RequestParam("signature") String signature) throws IOException, InterruptedException {
+    final public String doAuth(@RequestParam("mobileno") final String mobileno,
+                         @RequestParam("signature") final String signature) throws IOException, InterruptedException {
         Map<Object, Object> body = new HashMap();
         body.put("mobileno",mobileno);
         body.put("signature",signature);
