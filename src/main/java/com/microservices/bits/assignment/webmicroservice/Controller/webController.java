@@ -2,7 +2,10 @@ package com.microservices.bits.assignment.webmicroservice.Controller;
 
 //import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,18 +27,14 @@ public class webController {
         return "webservice";
     }
     @PostMapping("/register")
-    final public String doRegister(@RequestParam("mobileno") final String mobileno,
-                              @RequestParam("empname") final String empname,
-                              @RequestParam("empid") final String empid,
-                              @RequestParam("emptype")final String emptype,
-                              @RequestParam("secretkey") final String secretkey) throws IOException, InterruptedException {
+    final public ResponseEntity<?> doRegister(@RequestBody HashMap<String,String> reqbody) throws IOException, InterruptedException {
        // Call Register service
         Map<Object, Object> body = new HashMap();
-        body.put("mobileno",mobileno);
-        body.put("empname",empname);
-        body.put("empid",empid);
-        body.put("emptype",emptype);
-        body.put("secretkey",secretkey);
+        body.put("mobileno",reqbody.get("mobileno"));
+        body.put("empname",reqbody.get("empname"));
+        body.put("empid",reqbody.get("empid"));
+        body.put("emptype",reqbody.get("emptype"));
+        body.put("secretkey",reqbody.get("secretkey"));
         ObjectMapper mapper = new ObjectMapper();
         String bdy = mapper.writeValueAsString(body);
 
@@ -43,7 +42,7 @@ public class webController {
         HttpRequest request = HttpRequest.newBuilder().header("Content-Type", "application/json").uri(URI.create("http://localhost:9008/register")).POST(HttpRequest.BodyPublishers.ofString(bdy)).build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         String responsestr = (String)response.body();
-        return responsestr;
+        return  ResponseEntity.status(HttpStatus.OK).body(responsestr);
     }
 
     @PostMapping("/auth")
