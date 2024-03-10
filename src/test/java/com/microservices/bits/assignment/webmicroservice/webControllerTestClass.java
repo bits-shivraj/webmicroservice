@@ -36,7 +36,7 @@ public class webControllerTestClass {
 
         // Verify the response
         assertEquals(HttpStatus.OK.value(), response.getStatus());
-        assertEquals("webservice",res);
+        assertEquals("webservice11",res);
     }
 
     @Test
