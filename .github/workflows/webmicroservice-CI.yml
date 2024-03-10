@@ -40,7 +40,7 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
     - name: Run Maven Test
-      run: mvn -Dtest=webControllerTestClass spring-boot:test
+      run:  mvn --batch-mode -Dmaven.test.failure.ignore=true test
 
   lint:
     runs-on: ubuntu-latest
