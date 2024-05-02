@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: webservice
-        image: username/webservice:latest  # Replace with your image path
+        image: bits-shivraj/webservice:latest  # Replace with your image path
         ports:
         - containerPort: 9009
         resources:
